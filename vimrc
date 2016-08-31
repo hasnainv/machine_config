@@ -21,8 +21,12 @@ Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'airblade/vim-gitgutter'
 " YouCompleteMe
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
-
-
+" easy switching between headers and source
+Plug 'vim-scripts/a.vim'
+" Ctrl-P for fuzzy file searching
+Plug 'kien/ctrlp.vim'
+" lightweight file manager settings
+Plug 'tpope/vim-vinegar'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -487,3 +491,12 @@ set pastetoggle=<F12>
 " Use buffer to open in new tab and horizontal split. Mainly used for ctags
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR> 
+
+" YCM mapping
+if !has('win32')
+  " more YCM options
+  "let g:ycm_autoclose_preview_window_after_completion = 1
+  "let g:ycm_autoclose_preview_window_after_insertion = 1
+  " goto definition using YouCompleteMe plugin
+  nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+endif
